@@ -12,7 +12,7 @@ namespace CodingGameMineSweeper
         public int Row { get; set; }
         public char Value { get; set; }
 
-        bool IsPossibleBomb()
+        public bool IsPossibleBomb()
         {
             if(Value == '?')
             {
@@ -23,7 +23,7 @@ namespace CodingGameMineSweeper
 
         string Numbers = "12345678";
 
-        bool IsANumber()
+        public bool IsANumber()
         {
             if (Numbers.Contains(Value))
             {

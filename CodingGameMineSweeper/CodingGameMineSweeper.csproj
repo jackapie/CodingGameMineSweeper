@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BombFinder.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Program.cs" />
