@@ -92,17 +92,46 @@ namespace CodingGameMineSweeper
             }
         }
 
+        private void CompareBombsLeftCheck()
+        {
+            //Count all question marks left, if this is equal to Grid.NumberOfBombs, each location is a bomb
+            PossibleBombs = new List<Location>();
+            foreach (var row in Grid.GridPattern)
+            {
+                foreach (var location in row)
+                {
+                    if (location.IsPossibleBomb() == true)
+                    {
+                        PossibleBombs.Add(location);
+                    }
+                }
+            }
+            if (PossibleBombs.Count == Grid.NumberOfBombs)
+            {
+                foreach (var loc in PossibleBombs)
+                {
+                    if (loc.IsABomb == false)
+                    {
+                        loc.IsABomb = true;
+                        BombLocations.Add(loc);
+                    }
+                }
+            }
+            PossibleBombs.Clear();
+        }
+
         public void FindBombs()
         {
             BombLocations = new List<Location>();
             while (BombLocations.Count < Grid.NumberOfBombs)
             {
                 SearchGridForBombs();
+                CompareBombsLeftCheck();                
             }
 
             BombsFound = BombLocations.Count;
         }
 
-
+        
     }
 }
