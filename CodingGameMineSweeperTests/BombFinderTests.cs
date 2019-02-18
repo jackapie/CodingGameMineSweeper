@@ -76,5 +76,28 @@ namespace CodingGameMineSweeper.Tests
             Assert.AreEqual(9, bombFinder.BombsFound);
 
         }
+
+        [TestMethod()]
+        public void FindBombsTest4()
+        {
+            var gridInput = new List<string>()
+                {
+                    ".....",
+                    "..122",
+                    "..2??",
+                    "..3??",
+                    "..2??"
+                };
+
+            var grid = new Grid(gridInput);
+            grid.NumberOfBombs = 6;
+
+            var bombFinder = new BombFinder();
+            bombFinder.Grid = grid;
+            bombFinder.FindBombs();
+
+            Assert.AreEqual(6, bombFinder.BombsFound);
+
+        }
     }
 }
