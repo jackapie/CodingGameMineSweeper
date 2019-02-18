@@ -18,7 +18,7 @@ namespace CodingGameMineSweeper
 
         int SurroundingBombsToFind { get; set; }
 
-        public void Check(int row, int column, Location location)
+        public void Check(int row, int column)
         {
             if (Grid.GridPattern[row][column].IsABomb)
             {
@@ -32,14 +32,14 @@ namespace CodingGameMineSweeper
 
         public void CheckByColumn(int column, Location location)
         {
-            Check(location.Row, column, location);//check location in centre row
+            Check(location.Row, column);//check location in centre row
             if (location.Row > 0)
             {
-                Check(location.Row - 1, column, location);//check location above
+                Check(location.Row - 1, column);//check location above
             }
             if (location.Row + 1 < Grid.TotalRows)
             {
-                Check(location.Row + 1, column, location);//check location below
+                Check(location.Row + 1, column);//check location below
             }
         }
 
