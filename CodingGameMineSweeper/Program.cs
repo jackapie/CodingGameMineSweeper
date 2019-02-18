@@ -10,6 +10,38 @@ namespace CodingGameMineSweeper
     {
         static void Main(string[] args)
         {
+            string[] inputs = Console.ReadLine().Split(' ');
+            int h = int.Parse(inputs[0]);
+            int w = int.Parse(inputs[1]);
+            int nb = int.Parse(Console.ReadLine());
+
+            var gridInput = new List<string>();
+            for (int i = 0; i < h; i++)
+            {
+                string line = Console.ReadLine();
+                gridInput.Add(line);
+            }
+
+            var grid = new Grid(gridInput);
+            grid.NumberOfBombs = nb;
+
+            var bombFinder = new BombFinder();
+            bombFinder.Grid = grid;
+            bombFinder.FindBombs();
+            bombFinder.OrderBombs();
+
+            for (int i = 0; i < nb; i++)
+            {
+                var bomb = bombFinder.BombLocations[i];
+                var col = bomb.Column.ToString();
+                var row = bomb.Row.ToString();
+
+
+                // Write an action using Console.WriteLine()
+                // To debug: Console.Error.WriteLine("Debug messages...");
+
+                Console.WriteLine(col + " " + row);
+            }
         }
     }
 }

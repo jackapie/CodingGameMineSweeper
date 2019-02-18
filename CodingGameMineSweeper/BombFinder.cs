@@ -10,7 +10,7 @@ namespace CodingGameMineSweeper
     {
         public Grid Grid { get; set; }
 
-        List<Location> BombLocations { get; set; }
+        public List<Location> BombLocations { get; set; }
 
         List<Location> PossibleBombs { get; set; }
 
@@ -130,8 +130,15 @@ namespace CodingGameMineSweeper
             }
 
             BombsFound = BombLocations.Count;
+            
         }
 
-        
+        public void OrderBombs()
+        {
+            BombLocations = BombLocations.OrderBy((e) => e.Column).ThenBy((e) => e.Row).ToList();
+
+
+        }
+
     }
 }
