@@ -10,57 +10,58 @@ namespace CodingGameMineSweeper
     {
         public Grid Grid { get; set; }
 
-        int BombsFound = 0;
-
         List<Location> BombLocations { get; set; }
 
         List<Location> PossibleBombs { get; set; }
 
+        public int BombsFound { get; set; }
+
         int SurroundingBombsToFind { get; set; }
 
-        public void Check(int column, int row, Location location)
+        public void Check(int row, int column, Location location)
         {
             if (Grid.GridPattern[row][column].IsABomb)
             {
                 SurroundingBombsToFind -= 1;
             }
-            else if(Grid.GridPattern[row][column].IsPossibleBomb())
+            else if (Grid.GridPattern[row][column].IsPossibleBomb())
             {
-                PossibleBombs.Add(location);
+                PossibleBombs.Add(Grid.GridPattern[row][column]);
             }
         }
 
-        public void CheckColumn(int column, Location location)
+        public void CheckByColumn(int column, Location location)
         {
-            Check(column, location.Row, location);//check location in centre row
-            if(location.Row > 0)
+            Check(location.Row, column, location);//check location in centre row
+            if (location.Row > 0)
             {
-                Check(column, location.Row - 1, location);//check location above
+                Check(location.Row - 1, column, location);//check location above
             }
-            if(location.Row < Grid.TotalRows)
+            if (location.Row + 1 < Grid.TotalRows)
             {
-                Check(column, location.Row + 1, location);//check location below
+                Check(location.Row + 1, column, location);//check location below
             }
         }
 
         public void CheckSurroundingLocations(Location location)
         {
-            CheckColumn(location.Column, location);//check centre colummn
+            PossibleBombs = new List<Location>();
+            CheckByColumn(location.Column, location);//check centre colummn
             if (location.Column > 0)
             {
-                CheckColumn(location.Column - 1, location);//check left column
+                CheckByColumn(location.Column - 1, location);//check left column
             }
-            if(location.Column < Grid.TotalColumns)
+            if (location.Column + 1 < Grid.TotalColumns)
             {
-                CheckColumn(location.Column - 1, location);//check right column
+                CheckByColumn(location.Column + 1, location);//check right column
             }
 
-            if(PossibleBombs.Count == SurroundingBombsToFind)
+            if (PossibleBombs.Count == SurroundingBombsToFind)
             {
-                foreach(var loc in PossibleBombs)
+                foreach (var loc in PossibleBombs)
                 {
                     loc.IsABomb = true;
-                    BombLocations.Add(location);
+                    BombLocations.Add(loc);
                     BombsFound++;
                 }
             }
@@ -69,13 +70,13 @@ namespace CodingGameMineSweeper
 
         public void SearchGridForBombs()
         {
-            foreach(var row in Grid.GridPattern)
+            foreach (var row in Grid.GridPattern)
             {
                 foreach (var location in row)
                 {
                     if (location.IsANumber() == true)
                     {
-                        
+
                         SurroundingBombsToFind = int.Parse(location.Value.ToString());
                         CheckSurroundingLocations(location);
                     }
@@ -85,12 +86,15 @@ namespace CodingGameMineSweeper
 
         public void FindBombs()
         {
-            while(BombsFound < Grid.NumberOfBombs)
+            BombLocations = new List<Location>();
+            while (BombLocations.Count < Grid.NumberOfBombs)
             {
                 SearchGridForBombs();
             }
 
-
+            BombsFound = BombLocations.Count;
         }
+
+        
     }
 }

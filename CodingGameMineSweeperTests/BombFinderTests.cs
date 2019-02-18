@@ -16,6 +16,27 @@ namespace CodingGameMineSweeper.Tests
         {
             var gridInput = new List<string>()
                 {
+                    "1?1",
+                    "111"
+                    
+                };
+
+            var grid = new Grid(gridInput);
+            grid.NumberOfBombs = 1;
+
+            var bombFinder = new BombFinder();
+            bombFinder.Grid = grid;
+            bombFinder.FindBombs();
+
+            Assert.AreEqual(1, bombFinder.BombsFound);
+            
+        }
+
+        [TestMethod()]
+        public void FindBombsTest2()
+        {
+            var gridInput = new List<string>()
+                {
                     ".1???1",
                     ".11211",
                     "11....",
@@ -26,9 +47,13 @@ namespace CodingGameMineSweeper.Tests
 
             var grid = new Grid(gridInput);
             grid.NumberOfBombs = 4;
-            
 
-            Assert.Fail();
+            var bombFinder = new BombFinder();
+            bombFinder.Grid = grid;
+            bombFinder.FindBombs();
+
+            Assert.AreEqual(4, bombFinder.BombsFound);
+
         }
     }
 }
