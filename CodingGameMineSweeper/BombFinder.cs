@@ -62,7 +62,15 @@ namespace CodingGameMineSweeper
                 {
                     loc.IsABomb = true;
                     BombLocations.Add(loc);
-                    BombsFound++;
+                    
+                }
+            }
+
+            if (SurroundingBombsToFind == 0)
+            {
+                foreach (var loc in PossibleBombs)
+                {
+                    loc.Value = '.';
                 }
             }
             PossibleBombs.Clear();
@@ -95,6 +103,6 @@ namespace CodingGameMineSweeper
             BombsFound = BombLocations.Count;
         }
 
-        
+
     }
 }
