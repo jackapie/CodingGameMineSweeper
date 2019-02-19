@@ -21,8 +21,8 @@ namespace CodingGameMineSweeper.Tests
 
                 };
 
-            var grid = new Grid(gridInput);
-            grid.NumberOfBombs = 1;
+            var grid = new Grid(gridInput, 1);
+            
 
             var bombFinder = new BombFinder(grid);
             
@@ -45,9 +45,8 @@ namespace CodingGameMineSweeper.Tests
                     "11...."
                 };
 
-            var grid = new Grid(gridInput);
-            grid.NumberOfBombs = 4;
-
+            var grid = new Grid(gridInput, 4);
+           
             var bombFinder = new BombFinder(grid);
            
             bombFinder.FindBombs();
@@ -66,9 +65,8 @@ namespace CodingGameMineSweeper.Tests
                     "?????????????????"
                  };
 
-            var grid = new Grid(gridInput);
-            grid.NumberOfBombs = 9;
-
+            var grid = new Grid(gridInput, 9);
+            
             var bombFinder = new BombFinder(grid);
             
             bombFinder.FindBombs();
@@ -89,9 +87,8 @@ namespace CodingGameMineSweeper.Tests
                     "..2??"
                 };
 
-            var grid = new Grid(gridInput);
-            grid.NumberOfBombs = 6;
-
+            var grid = new Grid(gridInput, 6);
+           
             var bombFinder = new BombFinder(grid);
             
             bombFinder.FindBombs();
@@ -116,9 +113,8 @@ namespace CodingGameMineSweeper.Tests
                     "????2????"
                 };
 
-            var grid = new Grid(gridInput);
-            grid.NumberOfBombs = 12;
-
+            var grid = new Grid(gridInput, 12);
+           
             var bombFinder = new BombFinder(grid);
             
             bombFinder.FindBombs();

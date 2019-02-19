@@ -17,8 +17,9 @@ namespace CodingGameMineSweeper
         public int TotalRows { get; set; }
         
 
-        public Grid(List<string> gridInput)
+        public Grid(List<string> gridInput, int numberOfBombs)
         {
+            NumberOfBombs = numberOfBombs;
             TotalRows = gridInput.Count;
             TotalColumns = gridInput[0].Length;
             GridPattern = new List<List<Location>>();

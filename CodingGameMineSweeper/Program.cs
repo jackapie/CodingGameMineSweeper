@@ -27,8 +27,8 @@ namespace CodingGameMineSweeper
                 gridInput.Add(line);
             }
 
-            var grid = new Grid(gridInput);
-            grid.NumberOfBombs = nb;
+            var grid = new Grid(gridInput, nb);
+            
 
             var bombFinder = new BombFinder(grid);
             

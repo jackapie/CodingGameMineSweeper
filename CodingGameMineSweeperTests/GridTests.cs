@@ -24,7 +24,7 @@ namespace CodingGameMineSweeper.Tests
                     "11...."
                 };
 
-            var grid = new Grid(gridInput);                     
+            var grid = new Grid(gridInput, 4);                     
 
             
             Assert.AreEqual('?', grid.GridPattern[3][0].Value);
