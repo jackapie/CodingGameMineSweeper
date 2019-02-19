@@ -35,9 +35,8 @@ namespace CodingGameMineSweeper
             bombFinder.FindBombs();
             var bombList = OrderBombs(bombFinder.BombLocations);
 
-            for (int i = 0; i < nb; i++)
+            foreach (var bomb in bombList)
             {
-                var bomb = bombList[i];
                 var col = bomb.Column.ToString();
                 var row = bomb.Row.ToString();
 
