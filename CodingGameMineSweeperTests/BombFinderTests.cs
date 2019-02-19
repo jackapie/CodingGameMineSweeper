@@ -24,7 +24,7 @@ namespace CodingGameMineSweeper.Tests
             var grid = new Grid(gridInput, 1);
             
 
-            var bombFinder = new BombFinder(grid);
+            var bombFinder = new GridBombFinder(grid);
             
             bombFinder.FindBombs();
 
@@ -47,7 +47,7 @@ namespace CodingGameMineSweeper.Tests
 
             var grid = new Grid(gridInput, 4);
            
-            var bombFinder = new BombFinder(grid);
+            var bombFinder = new GridBombFinder(grid);
            
             bombFinder.FindBombs();
 
@@ -67,7 +67,7 @@ namespace CodingGameMineSweeper.Tests
 
             var grid = new Grid(gridInput, 9);
             
-            var bombFinder = new BombFinder(grid);
+            var bombFinder = new GridBombFinder(grid);
             
             bombFinder.FindBombs();
 
@@ -89,7 +89,7 @@ namespace CodingGameMineSweeper.Tests
 
             var grid = new Grid(gridInput, 6);
            
-            var bombFinder = new BombFinder(grid);
+            var bombFinder = new GridBombFinder(grid);
             
             bombFinder.FindBombs();
 
@@ -115,7 +115,7 @@ namespace CodingGameMineSweeper.Tests
 
             var grid = new Grid(gridInput, 12);
            
-            var bombFinder = new BombFinder(grid);
+            var bombFinder = new GridBombFinder(grid);
             
             bombFinder.FindBombs();
 
