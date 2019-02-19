@@ -133,12 +133,7 @@ namespace CodingGameMineSweeper
             
         }
 
-        public void OrderBombs()
-        {
-            BombLocations = BombLocations.OrderBy((e) => e.Column).ThenBy((e) => e.Row).ToList();
-
-
-        }
+        
 
     }
 }

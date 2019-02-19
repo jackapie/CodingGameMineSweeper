@@ -8,6 +8,11 @@ namespace CodingGameMineSweeper
 {
     class Program
     {
+        static List<Location> OrderBombs(List<Location> bombLocations)
+        {
+            return bombLocations.OrderBy((e) => e.Column).ThenBy((e) => e.Row).ToList();
+        }
+
         static void Main(string[] args)
         {
             string[] inputs = Console.ReadLine().Split(' ');
@@ -28,11 +33,11 @@ namespace CodingGameMineSweeper
             var bombFinder = new BombFinder();
             bombFinder.Grid = grid;
             bombFinder.FindBombs();
-            bombFinder.OrderBombs();
+            var bombList = OrderBombs(bombFinder.BombLocations);
 
             for (int i = 0; i < nb; i++)
             {
-                var bomb = bombFinder.BombLocations[i];
+                var bomb = bombList[i];
                 var col = bomb.Column.ToString();
                 var row = bomb.Row.ToString();
 
