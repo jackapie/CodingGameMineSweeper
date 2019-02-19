@@ -94,7 +94,7 @@ namespace CodingGameMineSweeper
 
         private void CompareBombsLeftCheck()
         {
-            //Count all question marks left, if this is equal to Grid.NumberOfBombs, each location is a bomb
+            
             PossibleBombs = new List<Location>();
             foreach (var row in Grid.GridPattern)
             {

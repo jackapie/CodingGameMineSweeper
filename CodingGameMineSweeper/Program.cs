@@ -44,7 +44,7 @@ namespace CodingGameMineSweeper
                 // Write an action using Console.WriteLine()
                 // To debug: Console.Error.WriteLine("Debug messages...");
 
-                Console.WriteLine(col + " " + row);
+                Console.WriteLine($"{col} {row}");
             }
         }
     }
