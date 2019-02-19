@@ -30,8 +30,8 @@ namespace CodingGameMineSweeper
             var grid = new Grid(gridInput);
             grid.NumberOfBombs = nb;
 
-            var bombFinder = new BombFinder();
-            bombFinder.Grid = grid;
+            var bombFinder = new BombFinder(grid);
+            
             bombFinder.FindBombs();
             var bombList = OrderBombs(bombFinder.BombLocations);
 

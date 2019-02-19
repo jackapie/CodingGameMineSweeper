@@ -24,8 +24,8 @@ namespace CodingGameMineSweeper.Tests
             var grid = new Grid(gridInput);
             grid.NumberOfBombs = 1;
 
-            var bombFinder = new BombFinder();
-            bombFinder.Grid = grid;
+            var bombFinder = new BombFinder(grid);
+            
             bombFinder.FindBombs();
 
             Assert.AreEqual(1, bombFinder.BombsFound);
@@ -48,8 +48,8 @@ namespace CodingGameMineSweeper.Tests
             var grid = new Grid(gridInput);
             grid.NumberOfBombs = 4;
 
-            var bombFinder = new BombFinder();
-            bombFinder.Grid = grid;
+            var bombFinder = new BombFinder(grid);
+           
             bombFinder.FindBombs();
 
             Assert.AreEqual(4, bombFinder.BombsFound);
@@ -69,8 +69,8 @@ namespace CodingGameMineSweeper.Tests
             var grid = new Grid(gridInput);
             grid.NumberOfBombs = 9;
 
-            var bombFinder = new BombFinder();
-            bombFinder.Grid = grid;
+            var bombFinder = new BombFinder(grid);
+            
             bombFinder.FindBombs();
 
             Assert.AreEqual(9, bombFinder.BombsFound);
@@ -92,8 +92,8 @@ namespace CodingGameMineSweeper.Tests
             var grid = new Grid(gridInput);
             grid.NumberOfBombs = 6;
 
-            var bombFinder = new BombFinder();
-            bombFinder.Grid = grid;
+            var bombFinder = new BombFinder(grid);
+            
             bombFinder.FindBombs();
 
             Assert.AreEqual(6, bombFinder.BombsFound);
@@ -119,8 +119,8 @@ namespace CodingGameMineSweeper.Tests
             var grid = new Grid(gridInput);
             grid.NumberOfBombs = 12;
 
-            var bombFinder = new BombFinder();
-            bombFinder.Grid = grid;
+            var bombFinder = new BombFinder(grid);
+            
             bombFinder.FindBombs();
 
             Assert.AreEqual(12, bombFinder.BombsFound);

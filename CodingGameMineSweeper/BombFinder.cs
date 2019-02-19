@@ -133,6 +133,11 @@ namespace CodingGameMineSweeper
             
         }
 
+        public BombFinder(Grid grid)
+        {
+            Grid = grid;
+        }
+
         
 
     }
